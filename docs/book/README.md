@@ -50,100 +50,101 @@ void done() {<br>
 Bitmap Ьm = BitmapFactory.decodeByteArray(tempdata,<br>
 О, tempdata.length);<br>
 String url = Images.Media.insertimage(getContentResolver(),<br>
-Ьm, null, null ) ;
-Ьm. recycle () ;
-Bundle bundle = new Bundle();
-if(url!=null) {
-bundle.putString("url", url);
-Intent mlntent = new Intent();
-mintent.putExtras(bundle);
-setResult(RESULT_OK, mlntent);
-} else {
-Toast.makeText(this, "О!ш,~бка!",
-Toast.IENGTH_SHORT) .show();
-finish ();
+Ьm, null, null ) ;<br>
+Ьm. recycle () ;<br>
+Bundle bundle = new Bundle();<br>
+if(url!=null) {<br>
+bundle.putString("url", url);<br>
+Intent mlntent = new Intent();<br>
+mintent.putExtras(bundle);<br>
+setResult(RESULT_OK, mlntent);<br>
+} else {<br>
+Toast.makeText(this, "О!ш,~бка!",<br>
+Toast.IENGTH_SHORT) .show();<br>
+finish ();<br>
 
-// Реакция на изменение поверхности
-@Override
-puЫic void surfaceChanged(SurfaceHolder holder, int format,
-int w, int h) {
-try 1
-if (mPreviewRunning) {
-Caml.stopPreview();
-// Останавливаем предварительный просмотр
-mPreviewRunning = false;
-// Получаем параметры камеры
-Camera.Parameters р = Caml.getParameters();
-// Устанавливаем размер предварительного просмотра
-p.setPreviewSize(w, h);
-// Устанавливаем параметры камеры
-Caml.setParameters(p);
-// Устанавливаем владельца поверхности
-Caml.setPreviewDisplay(holder);
-// Запускаем предварительный просмотр
-Caml.startPreview();
-// Флаг предварительного просмотра
-mPreviewRunning = true;
-catch(Exception е) {
-// Действие в случае исключения, эдесь нужно вывести или
-// сообщение об ОЦD,1бке или проанализировать ошибку. Для простоты
-// этого примера NЫ ничего не будем делать 
-}
-}
-
+// Реакция на изменение поверхности<br>
+@Override<br>
+puЫic void surfaceChanged(SurfaceHolder holder, int format,<br>
+int w, int h) {<br>
+try 1<br>
+if (mPreviewRunning) {<br>
+Caml.stopPreview();<br>
+// Останавливаем предварительный просмотр<br>
+mPreviewRunning = false;<br>
+// Получаем параметры камеры<br>
+Camera.Parameters р = Caml.getParameters();<br>
+// Устанавливаем размер предварительного просмотра<br>
+p.setPreviewSize(w, h);<br>
+// Устанавливаем параметры камеры<br>
+Caml.setParameters(p);<br>
+// Устанавливаем владельца поверхности<br>
+Caml.setPreviewDisplay(holder);<br>
+// Запускаем предварительный просмотр<br>
+Caml.startPreview();<br>
+// Флаг предварительного просмотра<br>
+mPreviewRunning = true;<br>
+catch(Exception е) {<br>
+// Действие в случае исключения, эдесь нужно вывести или<br>
+// сообщение об ОЦD,1бке или проанализировать ошибку. Для простоты<br>
+// этого примера NЫ ничего не будем делать <br>
+}<br>
+}<br>
+<br>
 ## Глава 11. Аппаратные средства смартфона/планшета      221
-@Override
-puЬlic void surfaceCreated(SurfaceHolder holder) {
-// Действие при создании поверхности - открываем камеру
-Carnl = Carnera.open();
-@Override
-puЬlic void surfaceDestroyed(SurfaceHolder holder)
-// Останавливаем предварительный просмотр
-Carnl.stopPreview();
-// Сбрасываем флаг
-mPreviewRunning = false;
-// Освобождаем ресурсы
-Carnl.release();
-Carnl=null;
-
+@Override<br>
+puЬlic void surfaceCreated(SurfaceHolder holder) {<br>
+// Действие при создании поверхности - открываем камеру<br>
+Carnl = Carnera.open();<br>
+@Override<br>
+puЬlic void surfaceDestroyed(SurfaceHolder holder)<br>
+// Останавливаем предварительный просмотр<br>
+Carnl.stopPreview();<br>
+// Сбрасываем флаг<br>
+mPreviewRunning = false;<br>
+// Освобождаем ресурсы<br>
+Carnl.release();<br>
+Carnl=null;<br>
+<br>
 # 11.3. Работаем с Bluetooth 
-Bluetooth - это очень популярная беспроводная технология, которую можно
+Bluetooth - это очень популярная беспроводная технология, которую можно<br>
 использовать как для подкmочения дополнительных устройств (например, телефонной гарнитуры hands free ), так и для передачи файлов. Подробного экскурса
 в исторшо и технические характеристики Bluetooth в этой книге не будет, благо
 в Интернете этой информации предостаточно. Мы же поговорим о программировании Bluetooth в Android.
-Для осуществления передачи данных по Bluetooth нужно включить адаmер
+<br>Для осуществления передачи данных по Bluetooth нужно включить адаmер
 Bluetooth, найти доступные устройства (другие смартфоны, ноутбуки, планшеты
 или стационарные компьютеры с включенным Bluetooth-aдanтepoм), подключиться
 к одному из этих устройств и произвести обмен данными.
-Чтобы использовать Bluetooth-aдanтep, нужно в файл манифеста добавить следующие строки:
-<uses-permission android:narne="android.permission.BLUETOOТH" />
-<uses-permission android:narne="android.permission.BLUETOOTH_ADMIN" />
-В пакете android.Ыuetooth определены следующие классы:
-□ BluetoothAdapter - представляет интерфейс обнаружения и установки Вluеtооth-соединений;
-□ BluetoothClass - описывает общие характеристики Bluetooth-ycтpoйcтвa;
-□ BluetoothDevice - представляет удаленное Bluetooth-ycтpoйcтвo;
-□ BluetoothSocket - сокет или точка соединения для данных, которыми наша система обменивается с другим Вluеtооth-устройством;
-□ BluetoothServersocket - сокет для прослушивания входящих Вluеtооth-соединений
+<br>Чтобы использовать Bluetooth-aдanтep, нужно в файл манифеста добавить следующие строки:<br>
+<uses-permission android:narne="android.permission.BLUETOOТH" /><br>
+<uses-permission android:narne="android.permission.BLUETOOTH_ADMIN" /><br>
+В пакете android.Ыuetooth определены следующие классы:<br>
+□ BluetoothAdapter - представляет интерфейс обнаружения и установки Вluеtооth-соединений;<br>
+□ BluetoothClass - описывает общие характеристики Bluetooth-ycтpoйcтвa;<br>
+□ BluetoothDevice - представляет удаленное Bluetooth-ycтpoйcтвo;<br>
+□ BluetoothSocket - сокет или точка соединения для данных, которыми наша система обменивается с другим Вluеtооth-устройством;<br>
+□ BluetoothServersocket - сокет для прослушивания входящих Вluеtооth-соединений<br>
 
 ## Часть 111. Построение сложного приложения 222
 Итак, приступим к реализации первого этапа обмена данными по Bluetooth, а именно - к включению Bluetooth-aдaптepa. Прежде всего нужно получить адаптер по
-умолчанию:
-BluetoothAdapter Bluetoothl = BluetoothAdapter.getDefaultAdapter();
-Активировать Bluetooth-aдaптep можно с помощью следующего кода:
-// Если Bluetooth-aдaптep выключен
-if(!Bluetoothl.isEnaЬled()) {
-// Создаем действие ACTION_REQUEST_ENAВLE - запрашивает включение
-// адаптера
-Intent eintent = new Intent(BluetoothAdapter.ACТION_REQUEST_ENAВLE);
-// ВЬmолняем действие
-startActivity(eintent);
-}
+умолчанию:<br>
+BluetoothAdapter Bluetoothl = BluetoothAdapter.getDefaultAdapter();<br>
+Активировать Bluetooth-aдaптep можно с помощью следующего кода:<br>
+// Если Bluetooth-aдaптep выключен<br>
+if(!Bluetoothl.isEnaЬled()) {<br>
+// Создаем действие ACTION_REQUEST_ENAВLE - запрашивает включение<br>
+// адаптера<br>
+Intent eintent = new Intent(BluetoothAdapter.ACТION_REQUEST_ENAВLE);<br>
+// ВЬmолняем действие<br>
+startActivity(eintent);<br>
+}<br>
 Затем нужно обнаружить Bluetooth-ycтpoйcтвa, расположенные по соседству. Для
 упрощения кода найденные устройства мы будем записывать в журнал с помощью
 параметра Log (листинг 11.4). Журнал можно будет просмотреть в Android Studio
 при запуске приложения. В реальном приложении вы должны будете отобразить
-найденные устройства в виде списка и предоставить пользователю выбор устройства.
-Лмеtмнr 11.4. Лоиск Bluetooф:.ycтpoio'nl
+найденные устройства в виде списка и предоставить пользователю выбор устройства.<br>
+
+Листинг 11.4. Поиск Bluetooф:.ycтpоиств<br>
 import android.util.Log;
 private final BroadcastReceiver myReceiver = new BroadcastReceiver()
 puЫic void onReceive(Context context, Intent intent) {
