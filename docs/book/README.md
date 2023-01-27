@@ -125,7 +125,7 @@ Bluetooth, найти доступные устройства (другие см
 □ BluetoothSocket - сокет или точка соединения для данных, которыми наша система обменивается с другим Вluеtооth-устройством;<br>
 □ BluetoothServersocket - сокет для прослушивания входящих Вluеtооth-соединений<br>
 
-## Часть 111. Построение сложного приложения 222
+## Часть 3. Построение сложного приложения 222
 Итак, приступим к реализации первого этапа обмена данными по Bluetooth, а именно - к включению Bluetooth-aдaптepa. Прежде всего нужно получить адаптер по
 умолчанию:<br>
 BluetoothAdapter Bluetoothl = BluetoothAdapter.getDefaultAdapter();<br>
@@ -205,7 +205,7 @@ myServerSocket.close();<br>
 }<br>
 }<br>
 <br>
-## Часть 111. Построение сложного приложения    224
+## Часть 3. Построение сложного приложения    224
 Код клиентского приложения приведен в листинге 11.6.<br>
 private class ConnectThread extends Thread<br>
 private final BluetoothSocket rnySocket;<br>
