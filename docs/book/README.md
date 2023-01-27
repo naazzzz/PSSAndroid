@@ -1,55 +1,55 @@
 ## Глава 11. Аппаратные средства смартфона/планшета     219                                               
 
-requestWindowFeature(Window.FEATURE_NO_TITLE);
-getWindow().setFlags(WindowМanager.LayoutPararns.FLAG_FULLSCREEN,
-WindowМanager.LayoutPararns.FLAG_FULLSCREEN);
-setContentView(R.layout.main);
-//Поиски установка SurfaceHolder
-Preview = (SurfaceView)findViewByid(R.id.surface);
-PreviewHolder = Preview.getHolder();
-PreviewHolder.addCallback(this);
-PreviewHolder.setType(SurfaceHolder.SURFACE_TYPE PUSH BUFFERS);
-minflater = Layoutinflater.from(this);
-View overView = minflater.inflate(R.layout.cameraoverlay, null);
-this.addContentView(overView,
-new LayoutPararns(LayoutPararns.FILL_PARENT,
-LayoutParams.FILL_PARENT));
+requestWindowFeature(Window.FEATURE_NO_TITLE);<br>
+getWindow().setFlags(WindowМanager.LayoutPararns.FLAG_FULLSCREEN,<br>
+WindowМanager.LayoutPararns.FLAG_FULLSCREEN);<br>
+setContentView(R.layout.main);<br>
+//Поиски установка SurfaceHolder<br>
+Preview = (SurfaceView)findViewByid(R.id.surface);<br>
+PreviewHolder = Preview.getHolder();<br>
+PreviewHolder.addCallback(this);<br>
+PreviewHolder.setType(SurfaceHolder.SURFACE_TYPE PUSH BUFFERS);<br>
+minflater = Layoutinflater.from(this);<br>
+View overView = minflater.inflate(R.layout.cameraoverlay, null);<br>
+this.addContentView(overView,<br>
+new LayoutPararns(LayoutPararns.FILL_PARENT,<br>
+LayoutParams.FILL_PARENT));<br>
 
-// Поиск кнопки
-GetPicture = (Button) findViewByid(R.id.button);
-// Устанавливаем обработчик нажатия кнопки
-GetPicture.setOnClickListener(new OnClickListener() {
-puЬlic void onClick(View view) {
-// Вызываем метод takePicture() для получения картинки
-Caml.takePicture(Shutter, PicCallback, compress);
+// Поиск кнопки<br>
+GetPicture = (Button) findViewByid(R.id.button);<br>
+// Устанавливаем обработчик нажатия кнопки<br>
+GetPicture.setOnClickListener(new OnClickListener() {<br>
+puЬlic void onClick(View view) {<br>
+// Вызываем метод takePicture() для получения картинки<br>
+Caml.takePicture(Shutter, PicCallback, compress);<br>
 
-// Пустая заглушка - ничего не делаем
-ShutterCallback Shutter = new ShutterCallback() {
-@Override,
-puЬlic void onShutter() {}
-} ;
+// Пустая заглушка - ничего не делаем<br>
+ShutterCallback Shutter = new ShutterCallback() {<br>
+@Override,<br>
+puЬlic void onShutter() {}<br>
+} ;<br>
 
-// Пустая заглушка - ничего не делаем
-PictureCallback PicCallback = new PictureCallback()
-puЬlic void onPictureTaken(byte[] data, Camera с) {}
-} ;
-// Заполняем массив с временными данными и вызываем
-/ / функцию done ()
-PictureCallback compress = new PictureCallback() {
-puЬlic void onPictureTaken(byte[] data, Camera с) {
-if(data !=null) {
-tempdata=data;
-done ();
-}
-}
-
+// Пустая заглушка - ничего не делаем<br>
+PictureCallback PicCallback = new PictureCallback()<br>
+puЬlic void onPictureTaken(byte[] data, Camera с) {}<br>
+} ;<br>
+// Заполняем массив с временными данными и вызываем<br>
+/ / функцию done ()<br>
+PictureCallback compress = new PictureCallback() {<br>
+puЬlic void onPictureTaken(byte[] data, Camera с) {<br>
+if(data !=null) {<br>
+tempdata=data;<br>
+done ();<br>
+}<br>
+}<br>
+<br>
 ## Часть 11. Построение сложного приложения    220
-void done() {
-// Получаем растровое изображение путем декодирования
-// массива tempdata
-Bitmap Ьm = BitmapFactory.decodeByteArray(tempdata,
-О, tempdata.length);
-String url = Images.Media.insertimage(getContentResolver(),
+void done() {<br>
+// Получаем растровое изображение путем декодирования<br>
+// массива tempdata<br>
+Bitmap Ьm = BitmapFactory.decodeByteArray(tempdata,<br>
+О, tempdata.length);<br>
+String url = Images.Media.insertimage(getContentResolver(),<br>
 Ьm, null, null ) ;
 Ьm. recycle () ;
 Bundle bundle = new Bundle();
