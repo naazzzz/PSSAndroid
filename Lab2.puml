@@ -1,0 +1,72 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+@startuml
+"controllerIndex" --|> "controllerBase" : Наследование
+"controllerIndex" ..> "modelProduct" : Зависимость
+"controllerIndex" ..> "modelContent" : Зависимость
+"modelProduct" --|> "modelBase" : Наследование
+"modelContent" --|> "modelBase" : Наследование
+"router" ..> "controllerBase" : Зависимость
+"controllerBase" ..> "template" : Зависимость
+
+class controllerIndex{
+
+ +String layouts
+ aboutAuthor()
+ downloadFiles()
+ product()
+ moderationProductUpdate()
+ index()...
+ }
+note right of "controllerIndex"::layouts
+Поле используемое для
+ пути к используемому слою
+end note
+
+class "modelProduct"{
++String name;
++Int price
++Int id
++String img
++String description
++String category
+fieldsTable()
+}
+
+class "modelContent"{
++String mainPage
++String aboutAuthor
++StringAbout
++int id
+}
+
+class "modelBase"{
+-String dataResult
+#DatabaseObject db
+#String fieldsTable
+fetchOne()
+save()
+update()
+deleteBySelect()
+}
+
+class "controllerBase"{
+Tamplate template
+String registry
+String layouts
+__construct(registry)
+index()
+}
+
+class "template"{
+-String controller
+-String vars
+-String layouts
++view(name)
++vars(varname, value)
+}
+
+note top of "controllerIndex": Это основной используемый контроллер
+@enduml
