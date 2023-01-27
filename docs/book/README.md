@@ -145,133 +145,133 @@ startActivity(eintent);<br>
 найденные устройства в виде списка и предоставить пользователю выбор устройства.<br>
 
 Листинг 11.4. Поиск Bluetooф:.ycтpоиств<br>
-import android.util.Log;
-private final BroadcastReceiver myReceiver = new BroadcastReceiver()
-puЫic void onReceive(Context context, Intent intent) {
-String action = intent.getAction();
-// Когда найдено устройство
-if (BluetoothDevice.ACTION_FOUND.equals(action));
-
-// Получаем объект BluetoothDevice из Intent
-BluetoothDevice device = intent.getParcelaЬleExtra(
-BluetoothDevice.EXTRA_DEVICE);
-// ВЫводим сообщение в журнал
-Log.v("BlueTooth found: ",device.getName() + "\n"
-+ device.getAddress());
-IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
-registerReceiver(myReceiver, filter);
-Bluetoothl.startDiscovery();
-
+import android.util.Log;<br>
+private final BroadcastReceiver myReceiver = new BroadcastReceiver()<br>
+puЫic void onReceive(Context context, Intent intent) {<br>
+String action = intent.getAction();<br>
+// Когда найдено устройство<br>
+if (BluetoothDevice.ACTION_FOUND.equals(action));<br>
+<br>
+// Получаем объект BluetoothDevice из Intent<br>
+BluetoothDevice device = intent.getParcelaЬleExtra(<br>
+BluetoothDevice.EXTRA_DEVICE);<br>
+// ВЫводим сообщение в журнал<br>
+Log.v("BlueTooth found: ",device.getName() + "\n"<br>
++ device.getAddress());<br>
+IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);<br>
+registerReceiver(myReceiver, filter);<br>
+Bluetoothl.startDiscovery();<br>
+<br>
 Затем нужно подключиться к устройству, которое выбрал пользователь. Надо отметить, что вы можете разработать как серверное, так и клиентское приложение. Сер-
-
+<br>
 ## Глава 11. Аппараmныв средства смарmфонв/планшвта 223
 верное приложение будет ожидать, что к нему подключится клиент, а клиентское
 станет подключаться к серверу. Код серверного приложения приведен в листинге 11.5. 
-
-// Класс AcceptBluetoothThread принимает входящие запросы
-private class AcceptBluetoothThread extends Thread {
-}
-private final BluetoothServerSocket myServerSocket;
-puЬlic AcceptThread() {
-// Используем временный объект
-BluetoothServerSocket trnp = null;
-try {
-// МY_UUID - идентификатор, также используемый клиентом
-trnp = mAdapter.listenUsingRfcorrmWithServiceRecord(NAМE,МY_UUID);
-} catch (IOException е) { }
-// Присваиваем trnp члену класса myServerSocket
-myServerSocket = trnp;
-}
-puЬlic void run() {
-BluetoothSocket socket = null;
-// Прослушиваем соеш,,хнения
-while (true) {
-try { // Принимаем соеш,,хнение
-socket = myServerSocket.accept();
-} catch (IOException е) {
-break;
-// Если соединение было принято
-if (socket != null) {
-// Производим обработку соеш,,хнения - в отдельном потоке
-DoSomethingWith(socket);
-// После обработки соеш,,хнения закрываем сокет
-myServerSocket.close();
-break;
-// Действие в случае отмены соеш,,хнения
-puЬlic void cancel() {
-try { // Закрываем сокет
-myServerSocket.close();
-}
-}
-}
-
+<br>
+// Класс AcceptBluetoothThread принимает входящие запросы<br>
+private class AcceptBluetoothThread extends Thread {<br>
+}<br>
+private final BluetoothServerSocket myServerSocket;<br>
+puЬlic AcceptThread() {<br>
+// Используем временный объект<br>
+BluetoothServerSocket trnp = null;<br>
+try {<br>
+// МY_UUID - идентификатор, также используемый клиентом<br>
+trnp = mAdapter.listenUsingRfcorrmWithServiceRecord(NAМE,МY_UUID);<br>
+} catch (IOException е) { }<br>
+// Присваиваем trnp члену класса myServerSocket<br>
+myServerSocket = trnp;<br>
+}<br>
+puЬlic void run() {<br>
+BluetoothSocket socket = null;<br>
+// Прослушиваем соеш,,хнения<br>
+while (true) {<br>
+try { // Принимаем соеш,,хнение<br>
+socket = myServerSocket.accept();<br>
+} catch (IOException е) {<br>
+break;<br>
+// Если соединение было принято<br>
+if (socket != null) {<br>
+// Производим обработку соеш,,хнения - в отдельном потоке<br>
+DoSomethingWith(socket);<br>
+// После обработки соеш,,хнения закрываем сокет<br>
+myServerSocket.close();<br>
+break;<br>
+// Действие в случае отмены соеш,,хнения<br>
+puЬlic void cancel() {<br>
+try { // Закрываем сокет<br>
+myServerSocket.close();<br>
+}<br>
+}<br>
+}<br>
+<br>
 ## Часть 111. Построение сложного приложения    224
-Код клиентского приложения приведен в листинге 11.6.
-private class ConnectThread extends Thread
-private final BluetoothSocket rnySocket;
-private final BluetoothDevice rnyDevice;
-puЫic ConnectThread(BluetoothDevice device)
-// Используем временный объект
-BluetoothSocket trnp = null;
-rnyDevice = device;
-// Получаем BluetoothSocket для соединения с BluetoothDevice
-try {
-// МY_UUID - идентификатор, такой же использует сервер
-trnp = device.createRfcommSocketToServiceRecord{МY_UUID);
-catch (IOException е) { }
-rnySocket = trnp;
-}
-puЬlic void run(} {
-// Отключаем обнаружение устройств, поскольку оно замедляет
-// соединение
-rnAdapter.cancelDiscovery();
-try {
-// Соединяемся с устройством через сокет
-rnySocket.connect();
-catch (IOException connectException) {
-// Невозможно подключиться, закрываем сокет
-try {
-rnySocket.close();
-} catch (IOException closeException) { }
-return;
-// Соединение установлено, производим его обработку в
-// отдельном потоке. Далее можно сделать все, что угодно, например,
-// передать данные в Bluetooth-coкeт, как в обычный сокет
-DoSornethingWith(rnySocket);
-// Отмена соединения, закрываем сокет
-puЫic void cancel() {
-try {
-rnySocket.close();
-} catch (IOException е) { 
-
+Код клиентского приложения приведен в листинге 11.6.<br>
+private class ConnectThread extends Thread<br>
+private final BluetoothSocket rnySocket;<br>
+private final BluetoothDevice rnyDevice;<br>
+puЫic ConnectThread(BluetoothDevice device)<br>
+// Используем временный объект<br>
+BluetoothSocket trnp = null;<br>
+rnyDevice = device;<br>
+// Получаем BluetoothSocket для соединения с BluetoothDevice<br>
+try {<br>
+// МY_UUID - идентификатор, такой же использует сервер<br>
+trnp = device.createRfcommSocketToServiceRecord{МY_UUID);<br>
+catch (IOException е) { }<br>
+rnySocket = trnp;<br>
+}<br>
+puЬlic void run(} {<br>
+// Отключаем обнаружение устройств, поскольку оно замедляет<br>
+// соединение<br>
+rnAdapter.cancelDiscovery();<br>
+try {<br>
+// Соединяемся с устройством через сокет<br>
+rnySocket.connect();<br>
+catch (IOException connectException) {<br>
+// Невозможно подключиться, закрываем сокет<br>
+try {<br>
+rnySocket.close();<br>
+} catch (IOException closeException) { }<br>
+return;<br>
+// Соединение установлено, производим его обработку в<br>
+// отдельном потоке. Далее можно сделать все, что угодно, например,<br>
+// передать данные в Bluetooth-coкeт, как в обычный сокет<br>
+DoSornethingWith(rnySocket);<br>
+// Отмена соединения, закрываем сокет<br>
+puЫic void cancel() {<br>
+try {<br>
+rnySocket.close();<br>
+} catch (IOException е) {<br> 
+<br>
 ## Глава 11. Аппаратные средства смартфона/планшета    225
 # 11.4. Виброзвонок
 Для привлечения внимания к уведомлению или диалоговому окну программы
 можно использовать вибрацию. Для управления виброзвонком надо добавить
-в файл манифеста следующее разрешение:
-<uses-permission android:narne="android.permission.VIBRATE" />
-Затем следует задействовать класс Vibrator:
-Vibrator Vib = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-Vib.vibrate(2000); // Вибрировать 2 секунды
-Для принудительной отмены вибрации (например, вы установили вибрацию две
-секунды, а пользователь отреагировал раньше) используется метод cancel ():
-Vib.cancel();
+в файл манифеста следующее разрешение:<br>
+<uses-permission android:narne="android.permission.VIBRATE" /><br>
+Затем следует задействовать класс Vibrator:<br>
+Vibrator Vib = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);<br>
+Vib.vibrate(2000); // Вибрировать 2 секунды<br>
+Для принудительной отмены вибрации (например, вы установили вибрацию две<br>
+секунды, а пользователь отреагировал раньше) используется метод cancel ():<br>
+Vib.cancel();<br>
 # 11.5. Набор номера
 Прежде чем мы рассмотрим более сложный пример с определением номера входящего звонка, давайте разберемся, как выполнить набор номера.
-Прежде всего в файл манифеста нужно добавить разрешение на исходящий звонок:
-<uses-permission android:narne="android.permission.CALL_PHONE" />
+Прежде всего в файл манифеста нужно добавить разрешение на исходящий звонок:<br>
+<uses-permission android:narne="android.permission.CALL_PHONE" /><br>
 Далее вы можете использовать одну из двух операций: или ACTION _ CALL, или
 ACTION _ DIAL. Первая операция отобразит диалоговое окно с набираемым номером
 (как обычно бывает при наборе номера вручную), вторая операция наберет номер
-без показа какого-либо интерфейса пользователя.
-Вот пример использования этих двух операций:
-startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel:11122233344")));
-startActivity(new Intent(Intent.ACТION_DIAL, Uri.parse("tel: 11122233344")));
-11.6. Определение номера входящего звонка
+без показа какого-либо интерфейса пользователя.<br>
+Вот пример использования этих двух операций:<br>
+startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel:11122233344")));<br>
+startActivity(new Intent(Intent.ACТION_DIAL, Uri.parse("tel: 11122233344")));<br>
+# 11.6. Определение номера входящего звонка
 Иногда нужно выполнить какие-либо действия только при определенном состоянии
 смартфона - например, при входящем звонке или при завершении звонка. В этом
 случае вам требуется прослушивать состояние устройства - как только будет обнаружен входящий (исходящий) звонок, вам надо будет произвести какие-нибудь
-действия, - например, начать запись разговора.
+действия, - например, начать запись разговора.<br>
 Для прослушивания состояния смартфона с целью ожидания какого-то события
 используются так называемые прослушки.
 В этой книге мы не станем рассматривать все имеющиеся прослушки, а разберемся
