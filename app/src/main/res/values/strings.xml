@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">My App</string>
     <string name="Yarik_krut">Yarik krut!</string>
+    <string name="pet_search_service">Pet Search Service</string>
+    <string name="Авторизация">Авторизация</string>
+    <string name="Login">Логин или Email</string>
+    <string name="Pass">Пароль</string>
+    <string name="Auth">Войти</string>
+    <string name="Reg">Регистрация</string>
 </resources>
