@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">My App</string>
+    <string name="Yarik_krut">Yarik krut!</string>
+    <string name="pet_search_service">Pet Search Service</string>
+    <string name="Авторизация">Авторизация</string>
+    <string name="Login">Логин или Email</string>
+    <string name="Pass">Пароль</string>
+    <string name="Auth">Войти</string>
+    <string name="Reg">Регистрация</string>
+    <string name="Back">Назад</string>
+    <string name="Accept">Принять</string>
+    <string name="PassAg">Повторите пароль</string>
+    <string name="Email">Email</string>
+    <string name="Lg">Логин</string>
+    <string name="title_home">Главная</string>
+    <string name="title_dashboard">Карта</string>
+    <string name="title_notifications">Аккаунт</string>
+    <string name="wh">Что случилось?</string>
+    <string name="i_find">Я нашел</string>
+    <string name="i_lost">Я потерял</string>
+    <string name="wholost">1/5: Кто пропал?</string>
+    <string name="wholost1">2/5: Фото</string>
+    <string name="wholost2">3/5: Время и место</string>
+    <string name="wholost3">4/5: Описание</string>
+    <string name="wholost4">5/5: Контакты</string>
+    <string name="lostpet">Пропал питомец</string>
+    <string name="lostpet4">Оставьте контактную информацию, чтобы с вами могли связаться, когда найдут вашего питомца.</string>
+    <string name="lostpet3">Укажите как можно больше дополнительной информации: породу, пол, окрас, особые приметы, а также обстоятельства, при которых питомец был потерян.</string>
+    <string name="lostpet2">Когда и где вы потеряли питомца?</string>
+    <string name="lostpet1">Добавьте фотографии. Это увеличит шансы на нахождение питомца.</string>
+    <string name="photo">Фотографии</string>
+    <string name="choose_photo">+ Выбрать фото</string>
+    <string name="pol">Укажите вид и пол вашего питомца</string>
+    <string name="pol1">Пол питомца</string>
+    <string name="pol2">Вид питомца</string>
+    <string name="next">Далее</string>
+    <string name="boy">Мальчик</string>
+    <string name="girl">Девочка</string>
+    <string name="dog">Собака</string>
+    <string name="cat">Кошка</string>
+    <string name="view">Посмотреть объявления</string>
+    <string name="date">Укажите дату</string>
+    <string name="place">Укажите место</string>
+    <string name="name">Ваше имя</string>
+    <string name="телефон">Номер телефона</string>
+    <string name="pub">Опубликовать объявление</string>
+    <string name="send">Отправить</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>
