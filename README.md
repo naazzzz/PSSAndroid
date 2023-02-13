@@ -2,6 +2,6 @@
 1ая лаб. раб. установлен шаблонный проект и изменен текс с Hello World! на Yarik Krut! 
 <br>
 2ая лаб. раб. разобрался с использованием и создаием диаграммы классов PlantUml, загрузил на гитхаб в проект файл получившегося класса
-![image](https://user-images.githubusercontent.com/55109956/215122517-c3a6909a-bcc1-4347-8a42-85be7759b520.png)
+![image](https://user-images.githubusercontent.com/55109956/215122517-c3a6909a-bcc1-4347-8a42-85be7759b520.png)<br>
 3ая лаб. раб. сделал xml файлы для приложения
 ![img.png](img.png)
