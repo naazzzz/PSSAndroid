@@ -3,65 +3,90 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".whFormNext">
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="411dp"
-        android:layout_height="71dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="25dp"
         android:text="@string/lostpet"
         android:textAlignment="center"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView7"
-        android:layout_width="411dp"
-        android:layout_height="71dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
         android:text="@string/lostpet1"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="20dp"
-        tools:layout_editor_absoluteY="176dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <ToggleButton
         android:id="@+id/buttonAccept2"
         android:layout_width="182dp"
-        android:layout_height="72dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="165dp"
         android:backgroundTint="@color/wood"
         android:textColor="@color/white"
         android:textOff="@string/choose_photo"
         android:textOn="@string/choose_photo"
         android:textSize="16dp"
-        tools:layout_editor_absoluteX="114dp"
-        tools:layout_editor_absoluteY="329dp" />
+        app:layout_constraintBottom_toTopOf="@+id/button5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="411dp"
-        android:layout_height="71dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="9dp"
         android:text="@string/wholost1"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="30dp"
-        tools:layout_editor_absoluteY="96dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <Button
         android:id="@+id/button5"
         android:layout_width="130dp"
-        android:layout_height="71dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="94dp"
         android:backgroundTint="@color/green"
+        android:onClick="transistionNext"
         android:text="@string/next"
-        tools:layout_editor_absoluteX="140dp"
-        tools:layout_editor_absoluteY="566dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAccept2" />
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="414dp"
-        android:layout_height="47dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="25dp"
         android:text="@string/photo"
         android:textAlignment="center"
         android:textColor="@color/gray"
         android:textSize="20dp"
-        tools:layout_editor_absoluteY="257dp" />
+        app:layout_constraintBottom_toTopOf="@+id/buttonAccept2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

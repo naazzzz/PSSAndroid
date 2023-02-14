@@ -3,50 +3,70 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".whFormNext">
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="411dp"
-        android:layout_height="59dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="24dp"
         android:text="@string/lostpet"
         android:textAlignment="center"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView7"
-        android:layout_width="410dp"
-        android:layout_height="120dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:text="@string/lostpet3"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="20dp"
-        tools:layout_editor_absoluteY="151dp" />
+        app:layout_constraintBottom_toTopOf="@+id/editText3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="411dp"
-        android:layout_height="59dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="9dp"
         android:text="@string/wholost3"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="30dp"
-        tools:layout_editor_absoluteY="83dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <Button
         android:id="@+id/button5"
         android:layout_width="130dp"
-        android:layout_height="59dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="93dp"
         android:backgroundTint="@color/green"
+        android:onClick="transistionNext"
         android:text="@string/next"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="579dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText3" />
 
     <EditText
         android:id="@+id/editText3"
-        android:layout_width="410dp"
-        android:layout_height="184dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="271dp" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="124dp"
+        app:layout_constraintBottom_toTopOf="@+id/button5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
