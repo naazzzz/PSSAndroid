@@ -1,6 +1,10 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -33,5 +37,33 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
 
+    public void transitionWH(View view) {
+        Intent intent = new Intent(this, whFormNext.class);
+        intent.putExtra("page",0);
+        startActivity(intent);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch(id){
+            case R.id.action_settings :
+                Intent intent = new Intent(this, settings.class);
+                startActivity(intent);
+                return true;
+            case R.id.exit:
+                Intent intent1 = new Intent(this, authActivity.class);
+                startActivity(intent1);
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 }
