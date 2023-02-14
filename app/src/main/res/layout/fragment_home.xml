@@ -6,53 +6,56 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="240dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="148dp"
-        android:text="@string/view"
-        android:backgroundTint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
-
     <TextView
         android:id="@+id/text_home"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
+
+        android:layout_marginTop="86dp"
         android:layout_marginBottom="66dp"
         android:text="@string/wh"
-
         android:textAlignment="center"
-        android:textSize="30sp"
         android:textColor="@color/black"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/button3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="240dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="81dp"
-        android:text="@string/i_lost"
+        android:layout_width="218dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="82dp"
         android:backgroundTint="@color/wood"
+        android:onClick="transitionWH"
+        android:text="@string/i_lost"
         app:layout_constraintBottom_toTopOf="@+id/button7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button3" />
 
     <Button
+        android:id="@+id/button7"
+        android:layout_width="328dp"
+        android:layout_height="85dp"
+        android:layout_marginBottom="164dp"
+        android:backgroundTint="@color/black"
+        android:text="@string/view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button4" />
+
+    <Button
         android:id="@+id/button3"
-        android:layout_width="237dp"
-        android:layout_height="0dp"
+        android:layout_width="211dp"
+        android:layout_height="60dp"
         android:layout_marginBottom="23dp"
-        android:text="@string/i_find"
         android:backgroundTint="@color/wood"
+        android:onClick="transitionWH"
+        android:text="@string/i_find"
         app:layout_constraintBottom_toTopOf="@+id/button4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
