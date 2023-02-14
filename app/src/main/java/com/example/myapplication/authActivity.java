@@ -1,10 +1,12 @@
 package com.example.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,26 +19,7 @@ public class authActivity extends AppCompatActivity {
         setContentView(R.layout.auth);
 
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        switch(id){
-            case R.id.action_settings :
-                Intent intent = new Intent(this, settings.class);
-                startActivity(intent);
-                return true;
-
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     public void transitionReg(View view) {
         Intent intent = new Intent(this, regActivity.class);
@@ -44,7 +27,12 @@ public class authActivity extends AppCompatActivity {
     }
 
     public void transitionHome(View view) {
-        Intent intent = new Intent(this, HomeActivity.class);
+        Context context = getApplicationContext();
+        Toast toast = Toast.makeText(context, "Успешная авторизация",
+                Toast.LENGTH_LONG);
+        toast. show () ;
+
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 }
