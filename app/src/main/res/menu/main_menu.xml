@@ -8,4 +8,8 @@
         android:id="@+id/support"
         android:orderInCategory="2"
         android:title="Поддержка" />
+    <item
+        android:id="@+id/exit"
+        android:orderInCategory="2"
+        android:title="Выход" />
 </menu>
