@@ -15,14 +15,19 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.myapplication.databinding.ActivityMainBinding;
+import com.yandex.mapkit.MapKitFactory;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
+    private final String MAPKIT_API_KEY = "5e7b49b7-bd93-4f55-bbe6-c82fc40a4e7e";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        MapKitFactory.setApiKey(MAPKIT_API_KEY);
+        MapKitFactory.initialize(this);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -66,4 +71,5 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
