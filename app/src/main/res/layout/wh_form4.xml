@@ -10,7 +10,10 @@
         android:id="@+id/textView4"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/lostpet"
         android:textAlignment="center"
         android:textSize="30dp"
@@ -21,13 +24,14 @@
 
     <TextView
         android:id="@+id/textView7"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="407dp"
+        android:layout_height="133dp"
+        android:layout_marginBottom="35dp"
         android:text="@string/lostpet3"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/editText3"
+        app:layout_constraintBottom_toTopOf="@+id/editTextDescription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -36,7 +40,7 @@
         android:id="@+id/textView5"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="9dp"
+        android:layout_marginBottom="12dp"
         android:text="@string/wholost3"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -57,13 +61,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextDescription" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/editTextDescription"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="124dp"
+        android:layout_marginBottom="109dp"
         app:layout_constraintBottom_toTopOf="@+id/button5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

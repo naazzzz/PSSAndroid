@@ -149,31 +149,6 @@ public class authActivity extends AppCompatActivity {
 
 
 
-//
-//        Intent intent = new Intent(this, MainActivity.class);
-//        startActivity(intent);
-
-
-//        if (!users.isEmpty()){
-//        for(int i=0;i< users.size();i++) {
-//            User user = users.get(i);
-//            if (Objects.equals(user.pass, password)) {
-//                Toast toast = Toast.makeText(context, "Успешная авторизация",
-//                        Toast.LENGTH_LONG);
-//                toast.show();
-//                Intent intent = new Intent(this, MainActivity.class);
-//                startActivity(intent);
-//            } else {
-//
-//            }
-//        }
-//        }
-//        else{
-//            Toast toast = Toast.makeText(context, "Проверьте корректность введенных данных",
-//                    Toast.LENGTH_LONG);
-//            toast.show();
-//        }
-
 
 
     }

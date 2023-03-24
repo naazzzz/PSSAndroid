@@ -7,33 +7,35 @@
     tools:context=".whFormNext">
 
     <EditText
-        android:id="@+id/editText3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="103dp"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
+        android:id="@+id/editTextPlace"
+        android:layout_width="410dp"
+        android:layout_height="88dp"
+        android:layout_marginBottom="17dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="408dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/date"
         android:textAlignment="center"
         android:textColor="@color/gray"
         android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/editText4"
+        app:layout_constraintBottom_toTopOf="@+id/date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextPlace" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
         android:text="@string/lostpet"
         android:textAlignment="center"
         android:textSize="30dp"
@@ -46,12 +48,13 @@
         android:id="@+id/textView7"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
         android:text="@string/lostpet2"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView8"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -60,7 +63,8 @@
         android:id="@+id/textView5"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
         android:text="@string/wholost2"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -72,41 +76,45 @@
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="130dp"
+        android:layout_width="133dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="94dp"
+        android:layout_marginBottom="30dp"
         android:backgroundTint="@color/green"
         android:onClick="transistionNext"
         android:text="@string/next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3" />
+        app:layout_constraintTop_toBottomOf="@+id/date" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginEnd="3dp"
         android:text="@string/place"
         android:textAlignment="center"
         android:textColor="@color/gray"
         android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/editText3"
+        app:layout_constraintBottom_toTopOf="@+id/editTextPlace"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText4" />
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <DatePicker
-        android:id="@+id/editText4"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="22dp"
+        android:id="@+id/date"
+        android:layout_width="298dp"
+        android:layout_height="258dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="112dp"
         android:minDate="01/01/2023"
         android:startYear="2023"
-        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        app:layout_constraintBottom_toTopOf="@+id/button5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
